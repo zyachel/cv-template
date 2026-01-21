@@ -13,7 +13,7 @@ It's intentionally kept short and clean (~130 lines with boilerplate text) so th
 1. install [texlive][texlive] either from your operating system's package manager, or via the website ([Quickstart][texlive]).
 2. run the following in your terminal emulator.
    ```bash
-   curl -O cv.tex https://rawgithubusercontent.com/zyachel/trunk/example.tex
+   curl -o cv.tex https://raw.githubusercontent.com/zyachel/cv-template/trunk/example.tex
    nvim cv.tex # replace with your favourite text editor.
    ```
 3. modify it to your needs
@@ -34,7 +34,7 @@ It's intentionally kept short and clean (~130 lines with boilerplate text) so th
 ### Someone else's "sentient" machine a.k.a LLM:
 
 ```text
-Use https://rawgithubusercontent.com/zyachel/cv-template/trunk/example.tex and fill it with my details:
+Use https://raw.githubusercontent.com/zyachel/cv-template/trunk/example.tex and fill it with my details:
 
 <your experiences>
 ```
