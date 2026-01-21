@@ -25,7 +25,7 @@ It's intentionally kept short and clean (~130 lines with boilerplate text) so th
 
 ### Someone else's machine a.k.a Cloud:
 
-1. copy contents of [example.tex][example]
+1. copy contents of [example.tex](./example.tex)
 2. go to [overleaf.com][overleaf] (create an account if you haven't already).
 3. create a new project
 4. paste the copied .tex contents
@@ -52,10 +52,9 @@ Use https://rawgithubusercontent.com/zyachel/cv-template/trunk/example.tex and f
 [rover]: https://github.com/subidit/rover-resume
 [sb2nov]: https://github.com/sb2nov/resume
 [overleaf]: https://overleaf.com
-[example]: https://github.com/zyachel/cv-template/blob/trunk/example.tex
 [texlive]: https://tug.org/texlive/quickinstall.html
 [workshop]: https://github.com/James-Yu/LaTeX-Workshop/
 [vimtex]: https://github.com/lervag/vimtex
-[latex-30m]: ...
+[latex-30m]: https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes 
 [software-engg]: https://www.techinterviewhandbook.org/software-engineering-interview-guide
 [frontend]: https://www.frontendinterviewhandbook.com/
