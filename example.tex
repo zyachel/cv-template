@@ -1,0 +1,137 @@
+% SPDX-License-Identifier: Apache-2.0
+
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[margin=0.2in,a4paper,noheadfoot]{geometry} % page layout
+\usepackage{xparse} % we love modern latex
+\usepackage{titlesec} % formatting sections
+\usepackage{enumitem} % enhanced lists
+\usepackage[hidelinks]{hyperref} % clickable links
+\usepackage[T1]{fontenc} % to make fonts utf-8 friendly
+\usepackage{tgbonum} % font family
+\usepackage{changepage} % gives `adjustwidth' environment
+\input{glyphtounicode} % for pdfgentounicode
+
+
+% == CONFIG
+% add some metadata to make it more friendly?
+%\hypersetup{
+  % pdftitle={C Developer - Name Surname},
+  % pdfauthor={Name Surname},
+  % pdfkeywords={TypeScript, JavaScript, Python, React, React Native, Docker, Node.js, Next.js, Developer, Software Developer, Software Engineer}
+%}
+
+\pdfgentounicode=1 % makes sure to have ats-friendly text
+\pagestyle{empty} % removes headers, footers, etc.
+\setcounter{secnumdepth}{0} % remove section numbers
+\titleformat{\section}{\Large\uppercase}{}{}{}[\titlerule] % adds underline to sections
+% don't justify!
+\raggedright{}
+\raggedbottom{}
+
+
+% == COMMANDS
+
+% takes 5 args, first four(metadata) correspond to top left, top right, bottom left, bottom right, where only first(top left) is mandatory(needs {}), rest are optional and need [].
+% fifth argument needs () and takes in list items.
+% all arguments except first are optional
+\NewDocumentCommand{\ListWithMetadata}{m O{} O{} O{} d()}{
+  \vspace{0.2em}
+  \begin{adjustwidth}{0.5em}{0pt}
+    \noindent\textbf{\large #1}\hfill\textit{#2}\par
+    \vspace{0.1em}
+    \noindent{\large #3}\IfValueTF{#4}{\hfill\textit{#4}}{}
+	\IfValueTF{#5}{
+    \par
+    \vspace{-0.3em}
+		\begin{itemize}[left=0.5em]
+			#5
+		\end{itemize}
+	}{}
+  \end{adjustwidth}
+}
+
+% if used with *, bullet points are shown
+\NewDocumentCommand{\ListSansMetadata}{s m}{
+  \IfBooleanTF{#1}{
+	\begin{adjustwidth}{0.5em}{0pt}
+		\begin{itemize}[left=0.5em]
+			#2
+		\end{itemize}
+	\end{adjustwidth}
+  }{
+	\begin{itemize}[left=0.5em, label={}]
+		#2
+	\end{itemize}
+  }
+}
+
+
+% == MAIN
+
+\begin{document}
+
+% 1. name and links 
+\begin{center}
+	\begin{minipage}{0.5\textwidth}
+		{\Huge \bfseries Name Surname} \\
+		\medskip
+		{\Large Software Engineer}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.4\textwidth}
+		\raggedleft {
+			\href{https://example.com}{example.com} \\
+			\href{tel:+018888888888}{+01 888 888 8888} \\
+			\href{mailto:example@example.com}{example@example.com} \\
+			\href{https://www.linkedin.com/in/name-surname}{linkedin.com/in/name-surname} \\
+		}
+	\end{minipage}
+\end{center}
+
+% 2. 
+\section{Experience}
+\ListWithMetadata{SDE-2}[July 2023 -- Present][Example GmbH](
+	\item Gesellschaft mit beschränkter Haftung is a type of legal entity in German-speaking countries.
+	\item It is equivalent to a société à responsabilité limitée in the French-speaking region of Switzerland and to a Società a Garanzia Limitata in the Italian-speaking region of Switzerland.
+	\item It is an entity broadly equivalent to the private limited company in the United Kingdom and many Commonwealth countries, and the limited liability company in the United States.
+)
+\ListWithMetadata{SDE-1}[Jan 2020 -- June 2023][Non-FAANG Ltd](
+	\item In a limited company, the liability of members or subscribers of the company is limited to what they have invested or guaranteed to the company.
+	\item Limited companies may be limited by shares or by guarantee. In a company limited by shares, the liability of members is limited to the unpaid value of shares.
+	\item In a company limited by guarantee, the liability of owners is limited to such amount as the owners may undertake to contribute to the assets of the company, in the event of being wound up.
+	\item The former may be further divided in public companies (public limited companies) and private companies (private limited companies). Who may become a member of a private limited company is restricted by law and by the company's rules.
+)
+
+% 3.
+\section{Technical Skills}
+\ListSansMetadata{
+	\item {\large\bfseries Languages}: C, C++, Lua, D, Perl, Gleam, Emacs Lisp
+	\item {\large\bfseries Frameworks \& Libraries}: React, React Native, Flutter, HTMX, Sklearn, NLTK, Pandas.
+	\item {\large\bfseries Databases}: Neo4j, Redis, PostgreSQL, MongoDB.
+	\item {\large\bfseries Tools \& Platforms}: Git, Docker, Bash, Neovim, \LaTeX, GNU/Linux, RISC-V, Nix.
+}
+
+% 4.
+\section{Education}
+\ListWithMetadata{MS}[Present][Not That Good University][90\% overall]
+\ListWithMetadata{BS}[July 2020][Good University](
+	\item Oh praise be with thine, for thou have maketh my career.
+	\item all my homies love \LaTeX.
+)
+
+% 5.
+\section{Projects \& Activities}
+\ListSansMetadata*{
+	\item There are many different forms of recreation which are shaped by individual interests and by environment.
+	\item a few examples being reading, playing or listening to music, watching movies or TV, gardening, hunting, hobbies, sports, studies, and travel.
+}
+
+% 6.
+\section{Personal Info}
+\ListSansMetadata{
+	\item {\large\bfseries Languages}: English, Spanish, Bahasa Indonesia, Ao.
+	\item {\large\bfseries Interests}: OSINT, Security, Privacy, FOSS, I use Arch BTW.
+}
+
+\end{document}
